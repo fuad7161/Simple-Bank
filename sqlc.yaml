@@ -1,0 +1,10 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "./db/query/"
+    schema: "./db/migration/"
+    gen:
+      go:
+        package: "sqlc" # The Go package name
+        out: "./db/sqlc" # The output directory for generated Go files
+        sql_package: "pgx/v5" # The Go SQL driver package
