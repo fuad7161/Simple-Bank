@@ -7,4 +7,7 @@ sql:
       go:
         package: "sqlc" # The Go package name
         out: "./db/sqlc" # The output directory for generated Go files
-        sql_package: "pgx/v5" # The Go SQL driver package
+        emit_interface: true
+        emit_json_tags: true
+        emit_prepared_queries: false
+        emit_exact_table_names: false

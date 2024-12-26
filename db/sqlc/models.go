@@ -5,30 +5,30 @@
 package sqlc
 
 import (
-	"github.com/jackc/pgx/v5/pgtype"
+	"time"
 )
 
 type Account struct {
-	ID        int64
-	Owner     string
-	Balance   int64
-	Currency  string
-	CreatedAt pgtype.Timestamp
+	ID        int64     `json:"id"`
+	Owner     string    `json:"owner"`
+	Balance   int64     `json:"balance"`
+	Currency  string    `json:"currency"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type Entry struct {
-	ID        int64
-	AccountID int64
+	ID        int64 `json:"id"`
+	AccountID int64 `json:"account_id"`
 	// must be positive
-	Amount    int64
-	CreatedAt pgtype.Timestamp
+	Amount    int64     `json:"amount"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 type Transfer struct {
-	ID            int64
-	FromAccountID int64
-	ToAccountID   int64
+	ID            int64 `json:"id"`
+	FromAccountID int64 `json:"from_account_id"`
+	ToAccountID   int64 `json:"to_account_id"`
 	// must be positive
-	Amount    int64
-	CreatedAt pgtype.Timestamp
+	Amount    int64     `json:"amount"`
+	CreatedAt time.Time `json:"created_at"`
 }
